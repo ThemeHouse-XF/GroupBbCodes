@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ThemeHouse_GroupBbCodes" title="[⌂] User Group BB Codes" version_string="1.0.3" version_id="1447261019" url="http://xf.themehouse.io/" install_callback_class="ThemeHouse_Install" install_callback_method="install" uninstall_callback_class="ThemeHouse_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="ThemeHouse_Listener_ControllerPreDispatch" callback_method="controllerPreDispatch" active="1" hint="" description=""/>
+    <listener event_id="file_health_check" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_FileHealthCheck" callback_method="fileHealthCheck" active="1" hint="" description=""/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_InitDependencies" callback_method="initDependencies" active="1" hint="" description=""/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_LoadClass" callback_method="loadClassModel" active="0" hint="XenForo_Model_Post" description="XenForo_Model_Post (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_LoadClass" callback_method="loadClassBbCode" active="0" hint="XenForo_BbCode_Formatter_BbCode_Strip" description="XenForo_BbCode_Formatter_BbCode_Strip (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_LoadClass" callback_method="loadClassBbCode" active="0" hint="XenForo_BbCode_Formatter_Text" description="XenForo_BbCode_Formatter_Text (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class_bb_code" execute_order="10" callback_class="ThemeHouse_GroupBbCodes_Listener_LoadClass" callback_method="loadClassBbCode" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="custom_bb_code_admin_desc" version_id="1411024792" version_string="1.0.0"><![CDATA[Show only to administrators.]]></phrase>
+    <phrase title="custom_bb_code_admin_title" global_cache="1" version_id="1411024792" version_string="1.0.0"><![CDATA[Administrator]]></phrase>
+    <phrase title="custom_bb_code_guest_desc" version_id="1411024792" version_string="1.0.0"><![CDATA[Show only to users who are unregistered.]]></phrase>
+    <phrase title="custom_bb_code_guest_title" global_cache="1" version_id="1411024792" version_string="1.0.0"><![CDATA[Unregistered]]></phrase>
+    <phrase title="custom_bb_code_ismemberofusergroup_desc" version_id="1411024792" version_string="1.0.0"><![CDATA[Show only to users who are a member of one or more of the user groups specified. User group IDs should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_ismemberofusergroup_title" global_cache="1" version_id="1411024792" version_string="1.0.0"><![CDATA[Is Member of User Group]]></phrase>
+    <phrase title="custom_bb_code_isnotmemberofusergroup_desc" version_id="1411030247" version_string="1.0.0"><![CDATA[Show only to users who are not a member of any of the user groups specified. User group IDs should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_isnotmemberofusergroup_title" global_cache="1" version_id="1411030247" version_string="1.0.0"><![CDATA[Is Not Member of User Group]]></phrase>
+    <phrase title="custom_bb_code_isnotuserid_desc" version_id="1412260587" version_string="1.0.2"><![CDATA[Show to everyone except the specified users. User IDs should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_isnotuserid_title" global_cache="1" version_id="1412260587" version_string="1.0.2"><![CDATA[Is Not User ID]]></phrase>
+    <phrase title="custom_bb_code_isnotusername_desc" version_id="1412260587" version_string="1.0.2"><![CDATA[Show to everyone except the specified users. Usernames should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_isnotusername_title" global_cache="1" version_id="1412260587" version_string="1.0.2"><![CDATA[Is Not Username]]></phrase>
+    <phrase title="custom_bb_code_isuserid_desc" version_id="1412260587" version_string="1.0.2"><![CDATA[Show only to specified users. User IDs should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_isuserid_title" global_cache="1" version_id="1412260587" version_string="1.0.2"><![CDATA[Is User ID]]></phrase>
+    <phrase title="custom_bb_code_isusername_desc" version_id="1412260587" version_string="1.0.2"><![CDATA[Show only to the specified users. Usernames should be entered as a comma-separated list.]]></phrase>
+    <phrase title="custom_bb_code_isusername_title" global_cache="1" version_id="1412260587" version_string="1.0.2"><![CDATA[Is Username]]></phrase>
+    <phrase title="custom_bb_code_mod_desc" version_id="1411024792" version_string="1.0.0"><![CDATA[Show only to moderators.]]></phrase>
+    <phrase title="custom_bb_code_mod_title" global_cache="1" version_id="1411024792" version_string="1.0.0"><![CDATA[Moderator]]></phrase>
+    <phrase title="custom_bb_code_notadmin_desc" version_id="1412150636" version_string="1.0.1"><![CDATA[Show only to non-administrators.]]></phrase>
+    <phrase title="custom_bb_code_notadmin_title" global_cache="1" version_id="1412150636" version_string="1.0.1"><![CDATA[Not Administrator]]></phrase>
+    <phrase title="custom_bb_code_notguest_desc" version_id="1412150636" version_string="1.0.1"><![CDATA[Show only to users who are not unregistered.]]></phrase>
+    <phrase title="custom_bb_code_notguest_title" global_cache="1" version_id="1412150636" version_string="1.0.1"><![CDATA[Not Unregistered]]></phrase>
+    <phrase title="custom_bb_code_notmod_desc" version_id="1412150636" version_string="1.0.1"><![CDATA[Show only to non-moderators.]]></phrase>
+    <phrase title="custom_bb_code_notmod_title" global_cache="1" version_id="1412150636" version_string="1.0.1"><![CDATA[Not Moderator]]></phrase>
+    <phrase title="custom_bb_code_notregistered_desc" version_id="1412150636" version_string="1.0.1"><![CDATA[Show only to users who are not registered.]]></phrase>
+    <phrase title="custom_bb_code_notregistered_title" global_cache="1" version_id="1412150636" version_string="1.0.1"><![CDATA[Not Registered]]></phrase>
+    <phrase title="custom_bb_code_registered_desc" version_id="1411024792" version_string="1.0.0"><![CDATA[Show only to users who are registered.]]></phrase>
+    <phrase title="custom_bb_code_registered_title" global_cache="1" version_id="1411024792" version_string="1.0.0"><![CDATA[Registered]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="footer" modification_key="th_copyrightNotice_groupBbCodes" description="Copyright notice for [⌂] User Group BB Codes" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+    <modification template="footer" modification_key="th_copyrightNotice_userGroupBbCodes" description="Copyright notice for User Group BB Codes by ThemeHouse" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes>
+    <bb_code bb_code_id="admin" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="administrator" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ADMIN]Administrators can see this[/ADMIN]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="guest" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="unregistered" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[GUEST]Guests can see this[/GUEST]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="ismemberofusergroup" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="userGroup" option_regex="#^[0-9]+(,[0-9]+)*$#" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISMEMBEROFUSERGROUP=1,2]Registered users and guests can see this[/ISMEMBEROFUSERGROUP]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="isnotmemberofusergroup" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notUserGroup" option_regex="#^[0-9]+(,[0-9]+)*$#" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISNOTMEMBEROFUSERGROUP=1,2]Registered users and guests can't see this[/ISNOTMEMBEROFUSERGROUP]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="isnotuserid" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notUserId" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISNOTUSERID=1]Site admin can't see this[/ISNOTUSERID]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="isnotusername" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notUsername" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISNOTUSERNAME=Admin]Site admin can't see this[/ISNOTUSERNAME]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="isuserid" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="userId" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISUSERID=1]Site admin can see this[/ISUSERID]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="isusername" bb_code_mode="callback" has_option="yes" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="username" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[ISUSERNAME=Admin]Site admin can see this[/ISUSERNAME]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="mod" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="moderator" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[MOD]Moderators can see this[/MOD]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="notadmin" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notAdministrator" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[NOTADMIN]Administrators can't see this[/NOTADMIN]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="notguest" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notUnregistered" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[NOTGUEST]Guests can't see this[/NOTGUEST]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="notmod" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notModerator" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[NOTMOD]Moderators can't see this[/NOTMOD]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="notregistered" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="notRegistered" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[NOTREGISTERED]Registered users can't see this[/NOTREGISTERED]]]></example>
+    </bb_code>
+    <bb_code bb_code_id="registered" bb_code_mode="callback" has_option="no" callback_class="ThemeHouse_GroupBbCodes_BbCode_UserGroup" callback_method="registered" option_regex="" trim_lines_after="0" plain_children="0" disable_smilies="0" disable_nl2br="0" disable_autolink="0" allow_empty="0" allow_signature="1" editor_icon_url="" sprite_mode="0" active="1">
+      <replace_html><![CDATA[]]></replace_html>
+      <replace_html_email><![CDATA[]]></replace_html_email>
+      <replace_text><![CDATA[]]></replace_text>
+      <example><![CDATA[[REGISTERED]Registered users can see this[/REGISTERED]]]></example>
+    </bb_code>
+  </bb_codes>
+</addon>
